@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './Home';
 import { NoMatch } from './NoMatch';
@@ -9,12 +9,15 @@ import { Login } from './Login';
 import { Upload } from './Upload';
 import { LoginTest } from './LoginTest';
 import { VideoTest } from './components/VideoTest';
+import { Logout } from './components/Logout';
+import './CSS/styles.css';
 
 function App() {
   return (
     <React.Fragment>
       {/* <LoginTest/> */}
-      {/* <NavBar/> */}
+      <NavBar/>
+      <Logout/>
       {/* <Layout> */}
         <Router>
           <Switch>

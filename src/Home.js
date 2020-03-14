@@ -11,7 +11,7 @@ export const Home=()=>(
             </head>
 
             <body>
-                <div class="navbar">
+                {/* <div class="navbar">
                     <div class="navbar-content">
                         <span class="navbar-logo">Home</span>
                         <span class="navbar-button"><a class="btn dark" href="/login">login</a></span>
@@ -19,7 +19,7 @@ export const Home=()=>(
                         <span class="navbar-item">Contact</span>
                         <span class="navbar-item">Devog</span>
                     </div>
-                </div>
+                </div> */}
 
                 <section class="video-section">
                     <div class="page-content">

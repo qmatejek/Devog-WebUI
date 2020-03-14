@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Redirect} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import styled from 'styled-components';
 import axios from 'axios';
+import { Link, withRouter, BrowserRouter } from "react-router-dom";
 
 
 
@@ -25,7 +26,13 @@ export class Login extends React.Component {
             username:'',
             password:'',
         }
+
+        this.state2 = {
+            successful: false,
+        }
     }
+
+    
 
     changeHandler = e => {
         this.setState({[e.target.name]: e.target.value})
@@ -39,6 +46,9 @@ export class Login extends React.Component {
             console.log(Response)
             console.log(Response.data.token)
             localStorage.setItem('token', Response.data.token)
+            this.state2.successful = true
+            this.props.history.push('/')
+            //console.log(this.state2.successful)
         })
         .catch(error => {
             console.log(error)
@@ -47,6 +57,7 @@ export class Login extends React.Component {
 
     render() {
         const {username, password} = this.state
+
         return (
             <Container>
             <Form className="login-form" onSubmit={this.submitHandler}>
@@ -70,8 +81,11 @@ export class Login extends React.Component {
                     Log in
                 </Button>
             </Form>
-            </Container>            
+            </Container>  
+                     
         );
+
+        
     }
 }
 
