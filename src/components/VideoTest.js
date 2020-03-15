@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ReactPlayer from 'react-player'
 
 export class VideoTest extends Component {
 
@@ -22,7 +23,14 @@ export class VideoTest extends Component {
             this.setState({res: Response}) //Does work!
             // this.setState({videos: this.state.videos.concat(Response.data[0])})
             //console.log(this.state.res.data[0].location)
-            console.log(Object.keys(this.state.res.data))
+
+            Response.data.map( vid => (
+                this.setState({videos: this.state.videos.concat([vid])})
+            ))
+
+            console.log(this.state.videos.map( vid => (
+                vid.location
+            )))
             
         })
         .catch(error => {
@@ -43,8 +51,14 @@ export class VideoTest extends Component {
                 <div>
                     <h3>This is vid display </h3>
                     <React.Fragment>
-                        {/* {console.log(Object.keys(this.state.res.data))} */}
-                        {/* {Object.keys(this.state.res.data)} */}
+
+                        {this.state.videos.map(vid => (
+                            <li>
+                                <ReactPlayer url={vid.location} controls/>
+                            </li>
+                        ))
+                        }
+
                     </React.Fragment>
                 </div>
                 

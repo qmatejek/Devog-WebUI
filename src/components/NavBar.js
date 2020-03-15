@@ -45,6 +45,7 @@ export class NavBar extends Component {
                         <span class="navbar-item">About</span>
                         <span class="navbar-item">Contact</span>
                         <span class="navbar-item">Devog</span>
+                        <span class="navbar-item"><a href='/video'>Videos</a></span>
                     </div>
                 </div>
             </React.Fragment>
