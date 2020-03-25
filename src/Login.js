@@ -12,6 +12,7 @@ const Container = styled.div`
   padding: 15px;
   margin: auto;
   height: 100%;
+  padding-top: 100px;
 
 `
 
@@ -27,9 +28,6 @@ export class Login extends React.Component {
             password:'',
         }
 
-        this.state2 = {
-            successful: false,
-        }
     }
 
     
@@ -39,16 +37,24 @@ export class Login extends React.Component {
     }
 
     submitHandler = e => {
+
         e.preventDefault()
-        console.log(this.state)
+
+        //Makes POST request to the API.
         axios.post('http://vision-flow-apiapp.ysy9jamj5c.us-east-1.elasticbeanstalk.com/login/', this.state)
         .then(Response => {
-            console.log(Response)
-            console.log(Response.data.token)
+
+            //Stores token for use with other components
             localStorage.setItem('token', Response.data.token)
-            this.state2.successful = true
-            this.props.history.push('/')
-            //console.log(this.state2.successful)
+
+            //Stores username for use with other components
+            if(this.state.username != null){
+                localStorage.setItem('username', this.state.username)
+            }
+
+            this.props.history.push('/') //Sends user to the home page.
+            window.location.reload(false); //Forces refresh to reflect change in login status. (login/logout button)
+
         })
         .catch(error => {
             console.log(error)
@@ -60,27 +66,33 @@ export class Login extends React.Component {
 
         return (
             <Container>
-            <Form className="login-form" onSubmit={this.submitHandler}>
-                <h2 className="text-center">Sign in</h2>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="text" placeholder="Enter username" name="username" value = {username} onChange={this.changeHandler}/>
-                    <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="text" placeholder="Password" name="password" value = {password} onChange={this.changeHandler}/>
-                </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Remember me" />
-                </Form.Group>
-                <Button variant="dark" type="submit" size="lg" block>
-                    Log in
-                </Button>
-            </Form>
+                <Form className="login-form" onSubmit={this.submitHandler}>
+                    <h2 className="text-center">Sign in</h2>
+
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="text" placeholder="Enter username" name="username" value = {username} onChange={this.changeHandler}/>
+                        <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="text" placeholder="Password" name="password" value = {password} onChange={this.changeHandler}/>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Remember me" />
+                    </Form.Group>
+
+                    <Button variant="dark" type="submit" size="lg" block>
+                        Log in
+                    </Button>
+                    
+                </Form>
+
             </Container>  
                      
         );
@@ -90,29 +102,3 @@ export class Login extends React.Component {
 }
 
 export default Login;
-// export const Login = () =>(
-   
-//     <Container>
-//     <Form className="login-form">
-//         <h2 className="text-center">Sign in</h2>
-//         <Form.Group controlId="formBasicEmail">
-//             <Form.Label>Email address</Form.Label>
-//             <Form.Control type="email" placeholder="Enter email" />
-//             <Form.Text className="text-muted">
-//             We'll never share your email with anyone else.
-//             </Form.Text>
-//         </Form.Group>
-
-//         <Form.Group controlId="formBasicPassword">
-//             <Form.Label>Password</Form.Label>
-//             <Form.Control type="password" placeholder="Password" />
-//         </Form.Group>
-//         <Form.Group controlId="formBasicCheckbox">
-//             <Form.Check type="checkbox" label="Remember me" />
-//         </Form.Group>
-//         <Button variant="dark" type="submit" size="lg" block>
-//             Log in
-//         </Button>
-//     </Form>
-//     </Container>
-// )

@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
-import {Nav, Navbar} from 'react-bootstrap';
 import { Logout } from './Logout';
-//import "./styles.css";
 import '../index.css';
 
 
 
 export class NavBar extends Component {
-    // <Navbar expand="lg" bg="dark" variant="dark">
-    //     <Navbar.Brand href="/">Behaviorics</Navbar.Brand>
-    //     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-    //     <Navbar.Collapse id="basic-navbar-nav">
-    //         <Nav className="ml-auto">
-    //         <Nav.Item><Nav.Link href="/upload">Upload</Nav.Link></Nav.Item>
-    //             <Nav.Item><Nav.Link href="/login">Login</Nav.Link></Nav.Item>
-    //         </Nav>
-    //     </Navbar.Collapse>
-    // </Navbar>
 
     state = {
         token: localStorage.getItem('token'),
@@ -26,6 +14,8 @@ export class NavBar extends Component {
 
     render(){
 
+        //This piece of code with the button variable allows me to do conditional rendering of the login/logout buttons.
+        //If token is null, then user is not logged in and needs to see the login button. If there is a token, then he/she needs the logout.
         let button;
 
         if(this.state.token == null){
@@ -35,20 +25,19 @@ export class NavBar extends Component {
             button = <Logout/>;
         }
 
+        
+
         return(
-            <React.Fragment>
-                <div class="navbar">
-                    <div class="navbar-content">
-                        <span class="navbar-logo"><a href="/">Home</a></span>
-                        {/* <span class="navbar-button"><a class="btn dark" href="/login">login</a></span> */}
-                        <span class="navbar-button">{ button }</span>
-                        <span class="navbar-item">About</span>
-                        <span class="navbar-item">Contact</span>
-                        <span class="navbar-item">Devog</span>
-                        <span class="navbar-item"><a href='/video'>Videos</a></span>
-                    </div>
+            
+                <div class="navbar-content">
+                    <span class="navbar-logo"><a href="/">Home</a></span>
+                    <span class="navbar-button">{ button }</span>
+                    <span class="navbar-item"><a href="">About</a></span>
+                    <span class="navbar-item"><a href="">Contact</a></span>
+                    <span class="navbar-item"><a href="">Devog</a></span>
+                    <span class="navbar-item"><a href='/video'>Videos</a></span>
                 </div>
-            </React.Fragment>
+            
         );
     }
 }

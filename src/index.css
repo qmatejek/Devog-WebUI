@@ -31,6 +31,11 @@ hr {
 
 .navbar-content {
   padding: 10px 3%;
+  width: 100%;
+  z-index: 500;
+  position: fixed;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .25);
+  background-color: #FFF;
 }
 
 .navbar-logo {
@@ -164,6 +169,7 @@ hr {
 .dark {
   background-color: #02353C;
   color: #C1f6ED;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .25);
 }
 
 .dark:hover {
@@ -236,8 +242,9 @@ hr {
 
 .video {
   padding: 0 3%;
-  max-width: 70%;
+  /* max-width: 70%; */
   text-align: center;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, .25);
 }
 
 .video-player {
@@ -285,3 +292,30 @@ hr {
 .submit {
   padding: 5px 3rem;
 }
+
+.fetchButton {
+  padding-top: 75px;
+  padding-bottom: 25px;
+  background-color: #449342;
+}
+
+.vidBackground {
+  background-color: #2b742a;
+  color: #CCC;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .25);
+  padding-top: 20px;
+}
+
+.margin5 {
+  margin: 5px;
+}
+
+.botPad5 {
+  padding-bottom: 5px;
+}
+
+.inline {
+  display: inline;
+}
+
+
