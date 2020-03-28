@@ -248,105 +248,117 @@ export class Video extends Component {
 
 
 
-
-        return (
-            <center>
-                <div class="fetchButton">
-                        <form onSubmit={this.FetchUpSubmitHandler} style={formStyle}>
-                            <button ref="fetchUp" class="btn dark" type="submit">Fetch Videos</button>
-                        </form>
-                    
-                        <form onSubmit={this.FetchLvSubmitHandler} style={formStyle}>
-                            <button ref="fetchLv" class="btn dark" type="submit">Fetch Livestreams</button>
-                        </form>
-
-                </div>
-
-                <div style={formDivStyle}>
-                    <input style={UploadStyle} type="file" name="file" onChange={this.fileButtonHandler} />
-
-                    <form style={addLiveStlye} onSubmit={this.AddLiveSubmitHandler} >
-                        <input class="botPad5" type="text" name="streamName" placeholder="Enter Stream Name" onChange={this.changeHandler}/> 
-                        <input class="botPad5" type="text" name="streamURL" placeholder="Enter Stream Url" onChange={this.changeHandler}/>
-                        <button class="btn dark margin5" type="submit">Add Livestream</button>
-                    </form>
-                </div>
-
-
-                <div class="vidBackground">
-                    <React.Fragment>
-
-                        {/* This is what is displayed if the "Fetch Videos" button is pressed. */}
-                        {this.state.videos.map(vid => (
-
-                            <ul style={listStyle}>
-                                <li key={vid.id}>
-                                    {/* <ReactPlayer url={vid.location} controls/> */}
-
-                                    {/* This is how each video is displayed */}
-                                    <video src={vid.location} width="480" height="270" controls>
-                                        Your browser does not support the video tag.
-                                    </video>
-
-                                    {/* This displays the current title of the video and the edit button */}
-                                    <form class="inline"  onSubmit={this.editSubmitHandler(vid.id, )}>
-                                        <h3> Videos current title: {vid.name} </h3>
-                                        <input class = "botPad5" type="text" placeholder="New title" id="title" name="title"/>
-                                        <button class="btn dark margin5" type="submit">Submit</button>
-                                    </form>
-
-                                    {/* This displays the delete button. */}
-                                    <form class="inline"  onSubmit={this.delSubmitHandler(vid.id, )}>
-                                        <button class="btn dark" type="submit">Delete Video</button>
-                                    </form>
-
-
-                                </li>
-                            </ul>
-                        ))
-
-                        }
-
-                        {/* This is what is displayed if the "Fetch Livestreams" button is pressed. */}
-                        {this.state.streams.map(strm => (
-                            <ul style={listStyle}>
-                                <li key={strm.id}>
-                                    {/* <ReactPlayer url={vid.location} controls/> */}
-                                    {/* <video src={strm.link} width="550" height="350" controls>
-                                        Your browser does not support the video tag.
-                                    </video> */}
-
-                                    {/* This is where the streams are actually displayed */}
-                                    <iframe title="streams" width="480" height="270" src={strm.link}></iframe>
-
-                                    {/* This displays the current title of the stream and the edit button. */}
-                                    <form class="inline" onSubmit={this.editLiveSubmitHandler(strm.id, )}>
-                                        <h3> Videos current title: {strm.name} </h3>
-                                        <input type="text" placeholder="New title" id="title" name="title"/>
-                                        <button class="btn dark margin5" type="submit">Submit</button>
-                                    </form>
-
-                                    {/* This is the delete button */}
-                                    <form class="inline" onSubmit={this.delLiveSubmitHandler(strm.id, )}>
-                                        <button class="btn dark" type="submit">Delete Stream</button>
-                                    </form>
-
-                                </li>
-                            </ul>
-                        ))
-                        }
-
-                    </React.Fragment>
-
-                    <footer style={footerStyle} align="left">
+        if(this.state.token != null)
+        {
+            return (
+                <center>
+                    <div class="fetchButton">
+                            <form onSubmit={this.FetchUpSubmitHandler} style={formStyle}>
+                                <button ref="fetchUp" class="btn dark" type="submit">Fetch Videos</button>
+                            </form>
                         
-                    </footer>
+                            <form onSubmit={this.FetchLvSubmitHandler} style={formStyle}>
+                                <button ref="fetchLv" class="btn dark" type="submit">Fetch Livestreams</button>
+                            </form>
 
+                    </div>
+
+                    <div style={formDivStyle}>
+                        <input style={UploadStyle} type="file" name="file" onChange={this.fileButtonHandler} />
+
+                        <form style={addLiveStlye} onSubmit={this.AddLiveSubmitHandler} >
+                            <input class="botPad5" type="text" name="streamName" placeholder="Enter Stream Name" onChange={this.changeHandler}/> 
+                            <input class="botPad5" type="text" name="streamURL" placeholder="Enter Stream Url" onChange={this.changeHandler}/>
+                            <button class="btn dark margin5" type="submit">Add Livestream</button>
+                        </form>
+                    </div>
+
+
+                    <div class="vidBackground">
+                        <React.Fragment>
+
+                            {/* This is what is displayed if the "Fetch Videos" button is pressed. */}
+                            {this.state.videos.map(vid => (
+
+                                <ul style={listStyle}>
+                                    <li key={vid.id}>
+                                        {/* <ReactPlayer url={vid.location} controls/> */}
+
+                                        {/* This is how each video is displayed */}
+                                        <video src={vid.location} width="480" height="270" controls>
+                                            Your browser does not support the video tag.
+                                        </video>
+
+                                        {/* This displays the current title of the video and the edit button */}
+                                        <form class="inline"  onSubmit={this.editSubmitHandler(vid.id, )}>
+                                            <h3> Videos current title: {vid.name} </h3>
+                                            <input class = "botPad5" type="text" placeholder="New title" id="title" name="title"/>
+                                            <button class="btn dark margin5" type="submit">Submit</button>
+                                        </form>
+
+                                        {/* This displays the delete button. */}
+                                        <form class="inline"  onSubmit={this.delSubmitHandler(vid.id, )}>
+                                            <button class="btn dark" type="submit">Delete Video</button>
+                                        </form>
+
+
+                                    </li>
+                                </ul>
+                            ))
+
+                            }
+
+                            {/* This is what is displayed if the "Fetch Livestreams" button is pressed. */}
+                            {this.state.streams.map(strm => (
+                                <ul style={listStyle}>
+                                    <li key={strm.id}>
+                                        {/* <ReactPlayer url={vid.location} controls/> */}
+                                        {/* <video src={strm.link} width="550" height="350" controls>
+                                            Your browser does not support the video tag.
+                                        </video> */}
+
+                                        {/* This is where the streams are actually displayed */}
+                                        <iframe title="streams" width="480" height="270" src={strm.link}></iframe>
+
+                                        {/* This displays the current title of the stream and the edit button. */}
+                                        <form class="inline" onSubmit={this.editLiveSubmitHandler(strm.id, )}>
+                                            <h3> Videos current title: {strm.name} </h3>
+                                            <input type="text" placeholder="New title" id="title" name="title"/>
+                                            <button class="btn dark margin5" type="submit">Submit</button>
+                                        </form>
+
+                                        {/* This is the delete button */}
+                                        <form class="inline" onSubmit={this.delLiveSubmitHandler(strm.id, )}>
+                                            <button class="btn dark" type="submit">Delete Stream</button>
+                                        </form>
+
+                                    </li>
+                                </ul>
+                            ))
+                            }
+
+                        </React.Fragment>
+
+                        <footer style={footerStyle} align="left">
+                            
+                        </footer>
+
+                    </div>
+                    
+
+                </center>
+            );
+        }
+        else{
+            return(
+                <div>
+                    <h1>You must be logged in to view this page!</h1>
+                    <h1>You must be logged in to view this page!</h1>
+                    {alert("You must be logged in to view this page!")}
+                    {this.props.history.push('/login')}
                 </div>
-                
-
-            </center>
-        );
+            );
+        }
     }
 }
 
