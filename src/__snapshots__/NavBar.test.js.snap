@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="navbar-content"
+>
+  <span
+    className="navbar-logo"
+  >
+    <a
+      href="/"
+    >
+      Home
+    </a>
+  </span>
+  <span
+    className="navbar-button"
+  >
+    <a
+      className="btn dark"
+      href="/login"
+    >
+      login
+    </a>
+  </span>
+  <span
+    className="navbar-item"
+  >
+    <a
+      href=""
+    >
+      About
+    </a>
+  </span>
+  <span
+    className="navbar-item"
+  >
+    <a
+      href=""
+    >
+      Contact
+    </a>
+  </span>
+  <span
+    className="navbar-item"
+  >
+    <a
+      href=""
+    >
+      Devog
+    </a>
+  </span>
+</div>
+`;
+
+exports[`renders logout button correctly 1`] = `
+<div
+  className="navbar-content"
+>
+  <span
+    className="navbar-logo"
+  >
+    <a
+      href="/"
+    >
+      Home
+    </a>
+  </span>
+  <span
+    className="navbar-button"
+  >
+    <button
+      className="btn dark"
+      onClick={[Function]}
+    >
+      logout
+    </button>
+  </span>
+  <span
+    className="navbar-item"
+  >
+    <a
+      href=""
+    >
+      About
+    </a>
+  </span>
+  <span
+    className="navbar-item"
+  >
+    <a
+      href=""
+    >
+      Contact
+    </a>
+  </span>
+  <span
+    className="navbar-item"
+  >
+    <a
+      href=""
+    >
+      Devog
+    </a>
+  </span>
+  <span
+    className="navbar-item"
+  >
+    <a
+      href="/video"
+    >
+      Videos
+    </a>
+  </span>
+</div>
+`;

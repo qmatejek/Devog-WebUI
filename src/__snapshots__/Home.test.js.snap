@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Fragment>
+  <html
+    dir="ltr"
+    lang="en"
+  >
+    <head>
+      <meta
+        charSet="utf-8"
+      />
+      <title>
+        Behaviorics Home
+      </title>
+    </head>
+    <body>
+      <section
+        className="video-section"
+      >
+        <div
+          className="page-content"
+        >
+          <div
+            className="video-text"
+          >
+            <h3
+              className="section-head"
+            >
+              Manage Videos
+            </h3>
+            <img
+              alt="Camera Footage"
+              className="home-img"
+              src="https://i.pinimg.com/originals/63/49/a6/6349a6e2c75a7ba79f0d413f4557bbd6.jpg"
+            />
+            <p
+              className="section-text"
+            >
+              Gather information from what you upload
+              <br />
+              <a
+                className="btn light inline-btn"
+                href="#"
+              >
+                learn more
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        className="info-section"
+      >
+        <div
+          className="belief-text"
+        >
+          <h3
+            className="subheader"
+          >
+            what we believe in
+          </h3>
+          <p
+            className="description"
+          >
+            More accurate data collection
+          </p>
+        </div>
+        <hr
+          className="section-divider"
+        />
+        <div
+          className="about-text"
+        >
+          <h3
+            className="subheader"
+          >
+            about
+          </h3>
+          <img
+            alt=""
+            className="about-img"
+            src="https://lh3.googleusercontent.com/proxy/lriRUAy5wYROWzv3GtVGu4D5eWOj-bHWzMZXcbyR409I0nCX6m-cAiB3GIlFyiDQbs78ydrBc2T4BgWCVY-kxB6AjnCBjQs3b_s0YWDqplkeUPMvHO--galdft8w-sPzfAhKD8r_8yE"
+          />
+          <p
+            className="description"
+          >
+            Who we are
+          </p>
+          <p
+            className="info-txt"
+          >
+            Behaviorics provides the CamHealth  software solution that monitors the health of your video surveillance system. CamHealth can detect failures and visual obstructions instantly. The software will automatically identify, log, and report these occurrences.
+          </p>
+          <hr
+            className="subdivider"
+          />
+          <a
+            className="btn dark"
+            href=""
+          >
+            learn more
+          </a>
+        </div>
+      </section>
+    </body>
+  </html>
+</Fragment>
+`;

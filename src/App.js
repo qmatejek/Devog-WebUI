@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './Home';
 import { NoMatch } from './NoMatch';
 import {NavBar} from './components/NavBar'
-import { Layout } from './components/Layout';
 import { Login } from './Login';
 import { Video } from './components/Video';
 import './CSS/styles.css';

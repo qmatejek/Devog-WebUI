@@ -20,25 +20,24 @@ export class NavBar extends Component {
         let vidLink;
 
         if(this.state.token == null){
-            button = <span class="navbar-button"><a class="btn dark" href="/login" >login</a></span>;
+            button = <span className="navbar-button"><a className="btn dark" href="/login" >login</a></span>;
             vidLink = "";
         }
         else{
             button = <Logout/>;
-            vidLink = <span class="navbar-item"><a href='/video'>Videos</a></span>
+            vidLink = <span className="navbar-item"><a href='/video'>Videos</a></span>
         }
 
         
 
         return(
             
-                <div class="navbar-content">
-                    <span class="navbar-logo"><a href="/">Home</a></span>
-                    {/* <span class="navbar-button">{ button }</span> */}
+                <div className="navbar-content">
+                    <span className="navbar-logo"><a href="/">Home</a></span>
                     {button}
-                    <span class="navbar-item"><a href="">About</a></span>
-                    <span class="navbar-item"><a href="">Contact</a></span>
-                    <span class="navbar-item"><a href="">Devog</a></span>
+                    <span className="navbar-item"><a href="">About</a></span>
+                    <span className="navbar-item"><a href="">Contact</a></span>
+                    <span className="navbar-item"><a href="">Devog</a></span>
                     {vidLink}
                 </div>
             
